@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Navbar/>
+        <div className='pages'>
+          <Routes>
+            <Route
+              path="/"
+              element={<Home/>}
+            />
+          </Routes>
+        </div>
+      </BrowserRouter>
     </div>
   );
 }
 
 export default App;
+
+/* BrowserRouter is a component that wraps arround the entire application and provides the routing 
+infrastructure for the application.
+
+Routes is a component that contains list of Route.
+
+
+Route is a component that specifies a particular route in the application.
+It has two important props path and element*/
